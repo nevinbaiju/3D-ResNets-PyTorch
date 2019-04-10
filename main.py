@@ -21,10 +21,15 @@ if __name__=="__main__":
 
     model = generate_model(opt)
     print('loading model {}'.format(opt.model))
-    model_data = torch.load(opt.model)
+    if(opt.no_cuda):
+        model_data = torch.load(opt.model, map_location='cpu')
+    else:
+        model_data = torch.load(opt.model)
     assert opt.arch == model_data['arch']
     model.load_state_dict(model_data['state_dict'],strict=False)
     model.eval()
+    print("Loading done")
+
     if opt.verbose:
         print(model)
 
