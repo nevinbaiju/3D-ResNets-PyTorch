@@ -23,6 +23,7 @@ def classify_video(video_dir, video_name, class_names, model, opt):
     video_segments = []
     for i, (inputs, segments) in enumerate(data_loader):
         inputs = Variable(inputs, volatile=True)
+        print(inputs.shape)
         outputs = model(inputs)
 
         video_outputs.append(outputs.cpu().data)
