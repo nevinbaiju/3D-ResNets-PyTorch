@@ -22,3 +22,26 @@ def parse_opts():
     args = parser.parse_args()
 
     return args
+
+class create_args():
+    def __init__(self, input='input', video_root='./videos', model='', output='output.json',\
+                 mode='feature', batch_size=32, n_threads=4, model_name='resnet', model_depth=101,\
+                 resnet_shortcut='A', wide_resnet_k=2, resnext_cardinality=32, no_cuda=False, \
+                 verbose=False, n_classes=10, sample_size=112, sample_duration=16):
+        self.input = input
+        self.video_root = video_root
+        self.model = model
+        self.output = output
+        self.mode = mode
+        self.batch_size = batch_size
+        self.n_threads = n_threads
+        self.model_name = model_name
+        self.model_depth = model_depth
+        self.resnet_shortcut = resnet_shortcut
+        self.wide_resnet_k = wide_resnet_k
+        self.resnext_cardinality = resnext_cardinality
+        self.no_cuda = no_cuda
+        self.verbose = verbose
+        self.n_classes = n_classes
+        self.sample_size=112
+        self.sample_duration=16
